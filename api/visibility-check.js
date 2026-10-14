@@ -85,6 +85,7 @@ export default async function handler(req,res){
           exactWebsite:Boolean(place._exactWebsite),
           nameSimilarity:place._nameSimilarity??0,
           locationSimilarity:place._locationSimilarity??0,
+          pureServiceAreaBusiness:Boolean(place._pureServiceAreaBusiness),
         }:null,
         trusted:Boolean(placeResult.trusted),
         fallbackQueryUsed:Boolean(placeResult.fallbackQueryUsed),
@@ -110,7 +111,7 @@ export default async function handler(req,res){
         sampledPages:[home.url,...pages.map((p)=>p.url)],
         selectedPages:selections,
       },
-      meta:{version:'1.2.0',durationMs:Date.now()-started},
+      meta:{version:'1.3.0',durationMs:Date.now()-started},
     });
   }catch(error){
     return res.status(400).json({success:false,error:error?.message||'Visibility check failed.'});

@@ -1,4 +1,4 @@
-# BMA Google Visibility Check — V1.2
+# BMA Google Visibility Check — V1.3
 
 Development build for validating the local-visibility scoring engine before the public GHL experience is designed.
 
@@ -50,7 +50,7 @@ Upload the contents of this folder to the repository root and import the reposit
 Use businesses where you already know the Google profile and website details. Verify that the matched Google listing is the correct business before trusting the score.
 
 
-## V1.2 matching safety
+## V1.3 matching safety
 
 - Review and Google Business Profile scores are only used when the Google place match is high confidence.
 - Low/medium-confidence candidates remain visible in diagnostics but do not contribute rating/review points.
@@ -58,7 +58,7 @@ Use businesses where you already know the Google profile and website details. Ve
 - When Google identity cannot be verified, the result becomes provisional and shows verified points rather than pretending uncertain Google data is correct.
 
 
-## V1.2 service-area businesses
+## V1.3 service-area businesses
 
 The third input now accepts a real **service area**, not only a suburb/city.
 
@@ -73,3 +73,15 @@ For broad service-area businesses:
 - national/service-area wording is recognised on the website;
 - local website scoring becomes **Service Area Website Signals**;
 - the website/domain remains the strongest Google Business Profile identity signal.
+
+
+## V1.3 pure service-area Google Business Profiles
+
+Google Places Text Search (New) excludes pure service-area businesses unless
+`includePureServiceAreaBusinesses: true` is supplied.
+
+V1.3 enables that option on every Places search and requests the
+`pureServiceAreaBusiness` response field.
+
+This is important for businesses that intentionally hide their street address
+and only publish a service area in Google Business Profile.
