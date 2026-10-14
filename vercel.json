@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/visibility-check.js": {
+      "maxDuration": 60
+    }
+  }
+}

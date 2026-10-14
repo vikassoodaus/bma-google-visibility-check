@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BMA Google Visibility Check — Development Tester V1.0</title>
+<style>
+:root{--ink:#0b302c;--dark:#073d36;--text:#48635d;--line:#dfe8e4;--off:#fbfcfa;--blue:#eaf3ff;--lilac:#f0ebff;--peach:#fff0e7;--mint:#e9f6ef;--sage:#edf5ec;--blush:#ffedef}*{box-sizing:border-box}body{margin:0;background:var(--off);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}.shell{width:min(1080px,calc(100% - 34px));margin:auto}.top{padding:26px 0 8px;font-size:11px;font-weight:850;letter-spacing:.13em;text-transform:uppercase;color:#648079}.hero{padding:20px 0 28px}.hero h1{margin:0;max-width:900px;font-size:clamp(42px,6vw,70px);line-height:1;letter-spacing:-.05em}.hero p{font-size:17px;line-height:1.6;color:var(--text);max-width:760px}.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;margin:14px 0}.form{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px}.form input{min-width:0;padding:15px;border:1px solid var(--line);border-radius:12px;font-size:15px}.btn{border:0;background:var(--dark);color:#fff;border-radius:12px;padding:0 20px;font-weight:800;cursor:pointer}.btn:disabled{opacity:.6}.hidden{display:none}.statusTop{display:flex;justify-content:space-between;gap:15px;color:var(--text);font-size:13px}.progressWrap{position:relative;padding-top:54px;margin-top:6px}.track{height:7px;background:#edf2ef;border-radius:999px;overflow:hidden}.fill{height:100%;width:0;transition:width .35s ease;background:linear-gradient(90deg,#cfe0f5 0 16.6%,#ddd0f6 16.6% 33.3%,#f3d9ca 33.3% 50%,#cfe5d9 50% 66.6%,#d4e3d2 66.6% 83.3%,#edd5df 83.3%)}.skippy{position:absolute;left:4%;bottom:2px;width:66px;transform:translateX(-50%);transition:left .35s ease;filter:drop-shadow(0 8px 7px rgba(7,61,54,.15))}.resultHead{display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:center}.score{font-size:64px;font-weight:850;letter-spacing:-.06em}.label{font-size:30px;font-weight:800;letter-spacing:-.035em}.meta{color:var(--text);font-size:13px;margin-top:6px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.card{border:1px solid var(--line);border-radius:16px;padding:17px;min-height:120px}.card:nth-child(1){background:var(--blue)}.card:nth-child(2){background:var(--lilac)}.card:nth-child(3){background:var(--peach)}.card:nth-child(4){background:var(--mint)}.card:nth-child(5){background:var(--sage)}.card:nth-child(6){background:var(--blush)}.card strong{display:block;font-size:13px}.card b{display:block;font-size:27px;margin-top:11px}.sectionTitle{font-size:23px;margin:30px 0 12px}.issue,.win{border:1px solid var(--line);border-radius:15px;padding:15px;background:#fff;margin:9px 0}.issue strong,.win strong{font-size:14px}.issue p,.win p{font-size:12px;color:var(--text);line-height:1.5;margin:5px 0}.fix{font-weight:650;color:var(--ink)!important}.diag{font-size:11px;line-height:1.6;color:var(--text)}@media(max-width:850px){.form{grid-template-columns:1fr}.btn{min-height:48px}.cards{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.cards{grid-template-columns:1fr}.resultHead{grid-template-columns:1fr}.score{font-size:54px}}
+</style>
+</head>
+<body>
+<div class="shell top">BMA Google Visibility Check — Development Tester V1.0</div>
+<main class="shell">
+<section class="hero"><h1>Can customers actually find you on Google?</h1><p>Test the local visibility foundations behind Google Search, Maps and local results.</p></section>
+<section class="panel">
+<form id="form" class="form">
+<input id="businessName" placeholder="Business name" required>
+<input id="website" placeholder="Website — example.com" required>
+<input id="location" placeholder="Suburb / City" required>
+<button id="btn" class="btn">Check My Visibility →</button>
+</form>
+<div id="status" class="panel hidden" style="margin-bottom:0">
+<div class="statusTop"><span id="message">Finding your business on Google…</span><strong id="pct">0%</strong></div>
+<div class="progressWrap"><img class="skippy" id="skippy" src="/assets/skippy.webp" alt=""><div class="track"><div id="fill" class="fill"></div></div></div>
+</div>
+</section>
+<section id="result" class="hidden">
+<div class="panel resultHead"><div><div id="overall" class="score">—</div><div class="meta">out of 100</div></div><div><div id="label" class="label"></div><div id="businessMeta" class="meta"></div><div id="googleMeta" class="meta"></div></div></div>
+<div id="cards" class="cards"></div>
+<h2 class="sectionTitle">Top visibility opportunities</h2><div id="issues"></div>
+<h2 class="sectionTitle">What is working</h2><div id="wins"></div>
+<h2 class="sectionTitle">Developer diagnostics</h2><div id="diag" class="panel diag"></div>
+</section>
+</main>
+<script>
+const $=s=>document.querySelector(s);let timer=null,p=0,lastHop=0;
+function stage(v){if(v<18)return'Finding your business on Google…';if(v<38)return'Reviewing your Google profile…';if(v<55)return'Checking reviews and reputation…';if(v<72)return'Analysing local website signals…';if(v<88)return'Reviewing SEO and technical health…';return'Preparing your visibility result…'}
+function paint(v,msg){p=Math.max(0,Math.min(100,Math.round(v)));$('#pct').textContent=p+'%';$('#fill').style.width=p+'%';$('#message').textContent=msg||stage(p);$('#skippy').style.left=(4+p*.92)+'%';const n=performance.now();if(p<100&&n-lastHop>420){lastHop=n;$('#skippy').animate([{transform:'translateX(-50%) translateY(0)'},{transform:'translateX(-50%) translateY(-11px)'},{transform:'translateX(-50%) translateY(0)'}],{duration:380})}}
+function start(){p=1;paint(1);timer=setInterval(()=>{let s=p<35?2.2:p<75?1.1:.35;paint(Math.min(94,p+s+Math.random()*s))},450)}function done(){clearInterval(timer);timer=null;paint(100,'Visibility check complete.')}
+function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+$('#form').addEventListener('submit',async e=>{e.preventDefault();$('#result').classList.add('hidden');$('#status').classList.remove('hidden');$('#btn').disabled=true;start();try{const r=await fetch('/api/visibility-check',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({businessName:$('#businessName').value,website:$('#website').value,location:$('#location').value})});const d=await r.json();if(!r.ok||!d.success)throw new Error(d.error||'Visibility check failed');done();render(d)}catch(err){clearInterval(timer);$('#message').textContent=err.message;$('#pct').textContent='';}finally{$('#btn').disabled=false}})
+function render(d){$('#overall').textContent=d.score.overall;$('#label').textContent=d.score.label;$('#businessMeta').textContent=`${d.business.domain} • ${d.business.location} • ${(d.meta.durationMs/1000).toFixed(1)}s`;const g=d.google.match;$('#googleMeta').textContent=g?`Google match: ${g.name} • ${g.rating??'—'}★ • ${g.reviewCount} reviews • ${d.google.confidence} confidence`:`Google business match: not confirmed${d.google.error?' • '+d.google.error:''}`;$('#cards').innerHTML=Object.values(d.categories).map(c=>`<div class="card"><strong>${esc(c.name)}</strong><b>${esc(c.score)} / ${esc(c.max)}</b>${c.partial?'<div class="meta">Partial data</div>':''}</div>`).join('');$('#issues').innerHTML=d.topIssues.length?d.topIssues.map((x,i)=>`<div class="issue"><strong>${i+1}. ${esc(x.title)}</strong><p>${esc(x.text)}</p><p class="fix">${esc(x.recommendation)}</p></div>`).join(''):'<div class="win"><strong>✓ No high-priority issues detected</strong><p>The business passed the core checks in the current local visibility model.</p></div>';$('#wins').innerHTML=d.wins.length?d.wins.map(x=>`<div class="win"><strong>✓ ${esc(x.title)}</strong><p>${esc(x.text)}</p></div>`).join(''):'<div class="win"><strong>More positives will appear as verified signals pass.</strong></div>';$('#diag').innerHTML=`Places API: ${d.google.available?'available':'unavailable'}<br>Google match confidence: ${esc(d.google.confidence)}<br>Matched address: ${esc(g?.address||'—')}<br>Matched category: ${esc(g?.category||'—')}<br>PageSpeed: ${d.technical.pageSpeedAvailable?d.technical.pageSpeedScore+'/100':esc(d.technical.pageSpeedError||'unavailable')}<br>Sitemap: ${d.technical.sitemapFound?esc(d.technical.sitemapUrl):'not found'}<br>Sampled pages:<br>${d.technical.sampledPages.map(x=>'• '+esc(x)).join('<br>')}`;$('#result').classList.remove('hidden');setTimeout(()=>$('#result').scrollIntoView({behavior:'smooth'}),120)}
+</script>
+</body>
+</html>
