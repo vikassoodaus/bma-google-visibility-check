@@ -5,6 +5,7 @@ import { findGoogleBusiness } from '../lib/places.js';
 import { analyseLocalPage, chooseLocalPages } from '../lib/site-analysis.js';
 import { inspectSearchFiles } from '../lib/robots.js';
 import { scoreVisibility } from '../lib/scoring.js';
+import { buildLocationScope } from '../lib/location-scope.js';
 
 function setCors(res){
   const origin=process.env.ALLOWED_ORIGIN||'*';
@@ -23,8 +24,9 @@ export default async function handler(req,res){
     const businessName=String(req.body?.businessName||'').trim();
     const location=String(req.body?.location||'').trim();
     if(!businessName)throw new Error('Enter the business name.');
-    if(!location)throw new Error('Enter the suburb or city.');
+    if(!location)throw new Error('Enter the service area, suburb or city.');
 
+    const locationScope=buildLocationScope(location);
     const requestedUrl=normaliseUrl(req.body?.website);
     await assertPublicUrl(requestedUrl);
 
@@ -35,7 +37,7 @@ export default async function handler(req,res){
     ]);
 
     if(!homeFetch.body)throw new Error('We could not read usable HTML from this website.');
-    const home=analyseLocalPage(homeFetch.body,homeFetch.finalUrl.toString(),location);
+    const home=analyseLocalPage(homeFetch.body,homeFetch.finalUrl.toString(),locationScope);
 
     const [searchFiles,selections]=await Promise.all([
       inspectSearchFiles(homeFetch.finalUrl.toString()),
@@ -46,7 +48,7 @@ export default async function handler(req,res){
       try{
         const fetched=await safeFetch(item.url,{timeoutMs:7000});
         if(!fetched.body)return null;
-        return {...analyseLocalPage(fetched.body,fetched.finalUrl.toString(),location),_reason:item.reason};
+        return {...analyseLocalPage(fetched.body,fetched.finalUrl.toString(),locationScope),_reason:item.reason};
       }catch{return null;}
     }))).filter(Boolean);
 
@@ -58,6 +60,8 @@ export default async function handler(req,res){
       business:{
         submittedName:businessName,
         location,
+        locationScopeType:locationScope.type,
+        locationScopeLabel:locationScope.label,
         requestedUrl:requestedUrl.toString(),
         finalUrl:homeFetch.finalUrl.toString(),
         domain:new URL(homeFetch.finalUrl).hostname,
@@ -78,10 +82,22 @@ export default async function handler(req,res){
           mapsUrl:place.googleMapsUri||'',
           openingHours:place.regularOpeningHours?.weekdayDescriptions||[],
           matchScore:place._matchScore||0,
+          exactWebsite:Boolean(place._exactWebsite),
+          nameSimilarity:place._nameSimilarity??0,
+          locationSimilarity:place._locationSimilarity??0,
         }:null,
+        trusted:Boolean(placeResult.trusted),
+        fallbackQueryUsed:Boolean(placeResult.fallbackQueryUsed),
         error:placeResult.available?null:placeResult.error,
       },
-      score:{overall:scored.overall,label:scored.label},
+      score:{
+        overall:scored.overall,
+        confirmedScore:scored.confirmedScore,
+        verifiedMax:scored.verifiedMax,
+        coverage:scored.coverage,
+        provisional:scored.provisional,
+        label:scored.label
+      },
       categories:scored.categories,
       topIssues:scored.topIssues.map(({family,title,text,recommendation,priority})=>({family,title,text,recommendation,priority})),
       wins:scored.wins,
@@ -94,7 +110,7 @@ export default async function handler(req,res){
         sampledPages:[home.url,...pages.map((p)=>p.url)],
         selectedPages:selections,
       },
-      meta:{version:'1.0.0',durationMs:Date.now()-started},
+      meta:{version:'1.2.0',durationMs:Date.now()-started},
     });
   }catch(error){
     return res.status(400).json({success:false,error:error?.message||'Visibility check failed.'});

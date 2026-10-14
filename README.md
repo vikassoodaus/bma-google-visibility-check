@@ -1,4 +1,4 @@
-# BMA Google Visibility Check — V1.0
+# BMA Google Visibility Check — V1.2
 
 Development build for validating the local-visibility scoring engine before the public GHL experience is designed.
 
@@ -48,3 +48,28 @@ Upload the contents of this folder to the repository root and import the reposit
 ## First validation sites
 
 Use businesses where you already know the Google profile and website details. Verify that the matched Google listing is the correct business before trusting the score.
+
+
+## V1.2 matching safety
+
+- Review and Google Business Profile scores are only used when the Google place match is high confidence.
+- Low/medium-confidence candidates remain visible in diagnostics but do not contribute rating/review points.
+- A second Places Text Search is only used when the first match is weak; it uses the submitted website domain to reduce same-name false matches.
+- When Google identity cannot be verified, the result becomes provisional and shows verified points rather than pretending uncertain Google data is correct.
+
+
+## V1.2 service-area businesses
+
+The third input now accepts a real **service area**, not only a suburb/city.
+
+Examples:
+- `San Jose`
+- `Melbourne`
+- `UK`
+- `Australia`
+
+For broad service-area businesses:
+- a hidden street address is not treated as a weakness;
+- national/service-area wording is recognised on the website;
+- local website scoring becomes **Service Area Website Signals**;
+- the website/domain remains the strongest Google Business Profile identity signal.
