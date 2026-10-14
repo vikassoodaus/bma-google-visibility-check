@@ -1,87 +1,67 @@
-# BMA Google Visibility Check — V1.3
+# BMA Google Visibility Check — V2.0 Public
 
-Development build for validating the local-visibility scoring engine before the public GHL experience is designed.
+This version turns the tested V1.4 engine into the public-facing BMA Google Visibility Check.
 
-## What V1 checks
+## Included
 
-- Google Business Profile / Google place match
-- Rating and review volume
-- Website/local-detail consistency
-- Location signals on the website
-- LocalBusiness structured data
-- Title, meta description and H1
-- Indexability and sitemap
-- HTTPS and mobile viewport
-- Google PageSpeed mobile performance
-- GA4 / GTM / Google Ads detection
-- Enquiry/contact paths
+- Public BMA-branded interface
+- Business Name + Website + Service Area/Suburb/City input
+- Animated six-colour progress bar
+- Skippy movement during the scan
+- Trusted Google Business Profile matching
+- Service-area business support
+- Six visibility categories
+- Top 3 visibility opportunities
+- Positive findings
+- Hidden developer diagnostics with `?debug=1`
+- GHL/GHL-page embed mode with `?embed=1`
+- Auto-height messages for the GHL iframe
+- Lead capture after results
+- 6-page PDF Google Visibility Report
+- Optional GoHighLevel webhook
 
-## Scoring model — 100 points
+## Environment variables
 
-- Google Business Profile — 25
-- Reviews & Reputation — 15
-- Local Website Signals — 20
-- On-Page SEO — 15
-- Technical Search Health — 15
-- Tracking & Conversion — 10
+Keep/add:
 
-## Required Vercel environment variables
+`GOOGLE_PLACES_API_KEY`
 
-### GOOGLE_PLACES_API_KEY
-Create a Google Maps Platform API key with **Places API (New)** enabled. Restrict the key to Places API (New).
+`GOOGLE_PAGESPEED_API_KEY`
 
-### GOOGLE_PAGESPEED_API_KEY
-You can reuse the PageSpeed API key already used by the BMA Website Check project, or create a dedicated key.
+Optional for lead capture:
 
-## Google Places usage
+`GHL_WEBHOOK_URL`
 
-V1 makes one Text Search (New) request per scan and requests only the fields needed for the visibility model. It does not perform a geo-grid rank scan and does not claim an exact Maps ranking.
+If the webhook is not configured, PDF generation still works.
 
-## Deploy
+## GHL embed mode
 
-Create a new GitHub repository, for example:
+Use:
 
-`bma-google-visibility-check`
+`https://YOUR-VERCEL-URL/?embed=1`
 
-Upload the contents of this folder to the repository root and import the repository into Vercel.
+The app hides its own standalone header/footer and reports its changing height to the parent page with:
 
-## First validation sites
+`bma-google-visibility-check-height`
 
-Use businesses where you already know the Google profile and website details. Verify that the matched Google listing is the correct business before trusting the score.
+## Developer diagnostics
 
+Use:
 
-## V1.3 matching safety
+`?debug=1`
 
-- Review and Google Business Profile scores are only used when the Google place match is high confidence.
-- Low/medium-confidence candidates remain visible in diagnostics but do not contribute rating/review points.
-- A second Places Text Search is only used when the first match is weak; it uses the submitted website domain to reduce same-name false matches.
-- When Google identity cannot be verified, the result becomes provisional and shows verified points rather than pretending uncertain Google data is correct.
+or:
 
+`?embed=1&debug=1`
 
-## V1.3 service-area businesses
+## Search indexing
 
-The third input now accepts a real **service area**, not only a suburb/city.
+The public app currently contains:
 
-Examples:
-- `San Jose`
-- `Melbourne`
-- `UK`
-- `Australia`
+`<meta name="robots" content="noindex,nofollow">`
 
-For broad service-area businesses:
-- a hidden street address is not treated as a weakness;
-- national/service-area wording is recognised on the website;
-- local website scoring becomes **Service Area Website Signals**;
-- the website/domain remains the strongest Google Business Profile identity signal.
+Keep this while testing. Remove it when the public Google Visibility Check page is ready for indexing.
 
+## Recommended GHL page slug
 
-## V1.3 pure service-area Google Business Profiles
-
-Google Places Text Search (New) excludes pure service-area businesses unless
-`includePureServiceAreaBusinesses: true` is supplied.
-
-V1.3 enables that option on every Places search and requests the
-`pureServiceAreaBusiness` response field.
-
-This is important for businesses that intentionally hide their street address
-and only publish a service area in Google Business Profile.
+`/google-visibility-check`

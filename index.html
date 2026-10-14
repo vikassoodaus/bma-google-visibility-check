@@ -1,99 +1,1085 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BMA Google Visibility Check — Development Tester V1.3</title>
-<style>
-:root{--ink:#0b302c;--dark:#073d36;--text:#48635d;--line:#dfe8e4;--off:#fbfcfa;--blue:#eaf3ff;--lilac:#f0ebff;--peach:#fff0e7;--mint:#e9f6ef;--sage:#edf5ec;--blush:#ffedef}*{box-sizing:border-box}body{margin:0;background:var(--off);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}.shell{width:min(1080px,calc(100% - 34px));margin:auto}.top{padding:26px 0 8px;font-size:11px;font-weight:850;letter-spacing:.13em;text-transform:uppercase;color:#648079}.hero{padding:20px 0 28px}.hero h1{margin:0;max-width:900px;font-size:clamp(42px,6vw,70px);line-height:1;letter-spacing:-.05em}.hero p{font-size:17px;line-height:1.6;color:var(--text);max-width:760px}.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;margin:14px 0}.form{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px}.form input{min-width:0;padding:15px;border:1px solid var(--line);border-radius:12px;font-size:15px}.btn{border:0;background:var(--dark);color:#fff;border-radius:12px;padding:0 20px;font-weight:800;cursor:pointer}.btn:disabled{opacity:.6}.hidden{display:none}.statusTop{display:flex;justify-content:space-between;gap:15px;color:var(--text);font-size:13px}.progressWrap{position:relative;padding-top:54px;margin-top:6px}.track{height:7px;background:#edf2ef;border-radius:999px;overflow:hidden}.fill{height:100%;width:0;transition:width .35s ease;background:linear-gradient(90deg,#cfe0f5 0 16.6%,#ddd0f6 16.6% 33.3%,#f3d9ca 33.3% 50%,#cfe5d9 50% 66.6%,#d4e3d2 66.6% 83.3%,#edd5df 83.3%)}.skippy{position:absolute;left:4%;bottom:2px;width:66px;transform:translateX(-50%);transition:left .35s ease;filter:drop-shadow(0 8px 7px rgba(7,61,54,.15))}.resultHead{display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:center}.score{font-size:64px;font-weight:850;letter-spacing:-.06em}.label{font-size:30px;font-weight:800;letter-spacing:-.035em}.meta{color:var(--text);font-size:13px;margin-top:6px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.card{border:1px solid var(--line);border-radius:16px;padding:17px;min-height:120px}.card:nth-child(1){background:var(--blue)}.card:nth-child(2){background:var(--lilac)}.card:nth-child(3){background:var(--peach)}.card:nth-child(4){background:var(--mint)}.card:nth-child(5){background:var(--sage)}.card:nth-child(6){background:var(--blush)}.card strong{display:block;font-size:13px}.card b{display:block;font-size:27px;margin-top:11px}.sectionTitle{font-size:23px;margin:30px 0 12px}.issue,.win{border:1px solid var(--line);border-radius:15px;padding:15px;background:#fff;margin:9px 0}.issue strong,.win strong{font-size:14px}.issue p,.win p{font-size:12px;color:var(--text);line-height:1.5;margin:5px 0}.fix{font-weight:650;color:var(--ink)!important}.diag{font-size:11px;line-height:1.6;color:var(--text)}@media(max-width:850px){.form{grid-template-columns:1fr}.btn{min-height:48px}.cards{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.cards{grid-template-columns:1fr}.resultHead{grid-template-columns:1fr}.score{font-size:54px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Google Visibility Check | Business Marketing Agency</title>
+  <meta name="description" content="See how your business is showing up across Google Search, Maps and local results with BMA's free Google Visibility Check.">
+  <style>
+    :root{
+      --ink:#0b302c;
+      --dark:#073d36;
+      --text:#48635d;
+      --muted:#71837e;
+      --line:#dfe8e4;
+      --white:#fff;
+      --off:#fbfcfa;
+
+      --blue:#eaf3ff;
+      --lilac:#f0ebff;
+      --peach:#fff0e7;
+      --mint:#e9f6ef;
+      --sage:#edf5ec;
+      --blush:#ffedef;
+
+      --blue-strong:#cfe0f5;
+      --lilac-strong:#ddd0f6;
+      --peach-strong:#f3d9ca;
+      --mint-strong:#cfe5d9;
+      --sage-strong:#d4e3d2;
+      --blush-strong:#edd5df;
+
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 10% 4%,rgba(234,243,255,.72),transparent 26%),
+        radial-gradient(circle at 89% 2%,rgba(240,235,255,.52),transparent 28%),
+        var(--off);
+      color:var(--ink);
+      font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    }
+
+    a{color:inherit}
+    button,input{font:inherit}
+    .shell{width:min(var(--max),calc(100% - 34px));margin:0 auto}
+    .hidden{display:none!important}
+
+    /* Standalone top bar. Hidden inside GHL embed mode. */
+    .topbar{
+      padding:22px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:22px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      min-width:0;
+    }
+    .brand img{width:46px;height:46px;object-fit:contain}
+    .brand strong{display:block;font-size:15px;line-height:1.1;letter-spacing:-.02em}
+    .brand span{display:block;margin-top:4px;color:var(--muted);font-size:10px}
+    .topnote{
+      padding:9px 13px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.75);
+      color:var(--text);
+      font-size:12px;
+      font-weight:750;
+      white-space:nowrap;
+    }
+
+    .hero{padding:58px 0 46px;text-align:center}
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:#648079;
+      font-size:11px;
+      font-weight:850;
+      letter-spacing:.15em;
+      text-transform:uppercase;
+    }
+    .eyebrow-dot{
+      width:7px;height:7px;border-radius:50%;background:var(--dark);
+      box-shadow:0 0 0 5px rgba(7,61,54,.07);
+    }
+    h1{
+      max-width:900px;
+      margin:18px auto 16px;
+      font-size:clamp(44px,7vw,76px);
+      line-height:.98;
+      letter-spacing:-.055em;
+      font-weight:820;
+    }
+    .hero-copy{
+      max-width:760px;
+      margin:0 auto;
+      color:var(--text);
+      font-size:18px;
+      line-height:1.65;
+    }
+    .hero-points{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+      margin-top:22px;
+    }
+    .hero-point{
+      padding:8px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.78);
+      color:var(--text);
+      font-size:12px;
+      font-weight:750;
+    }
+
+    .scan-card{
+      max-width:1040px;
+      margin:0 auto 42px;
+      padding:18px;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:rgba(255,255,255,.94);
+      box-shadow:0 18px 55px rgba(26,64,57,.08);
+    }
+    .scan-form{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr auto;
+      gap:10px;
+    }
+    .field-wrap{min-width:0}
+    .field-wrap label{
+      display:block;
+      margin:0 0 6px 3px;
+      color:#647b74;
+      font-size:10px;
+      font-weight:850;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .input{
+      width:100%;
+      min-height:54px;
+      padding:0 14px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+      color:var(--ink);
+      outline:none;
+      transition:border-color .18s ease,box-shadow .18s ease;
+    }
+    .input:focus{
+      border-color:#8daaa3;
+      box-shadow:0 0 0 4px rgba(7,61,54,.07);
+    }
+    .scan-submit-wrap{
+      display:flex;
+      align-items:end;
+    }
+    .primary-btn{
+      min-height:54px;
+      padding:0 21px;
+      border:0;
+      border-radius:14px;
+      background:var(--dark);
+      color:#fff;
+      font-weight:830;
+      cursor:pointer;
+      white-space:nowrap;
+      transition:transform .18s ease,box-shadow .18s ease,opacity .18s ease;
+    }
+    .primary-btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(7,61,54,.14)}
+    .primary-btn:disabled{opacity:.62;cursor:wait;transform:none;box-shadow:none}
+
+    .status{
+      margin-top:14px;
+      padding:14px 14px 10px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fff;
+    }
+    .status-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      min-height:25px;
+    }
+    .status-message{font-size:14px;color:var(--text)}
+    .status-percent{font-size:18px;font-weight:850;color:var(--dark);min-width:54px;text-align:right}
+    .progress-wrap{position:relative;padding-top:59px;margin-top:7px}
+    .track{height:7px;overflow:hidden;border-radius:999px;background:#edf2ef}
+    .fill{
+      width:0;height:100%;border-radius:999px;
+      transition:width .38s ease;
+      background:linear-gradient(
+        90deg,
+        var(--blue-strong) 0%,var(--blue-strong) 16.2%,rgba(255,255,255,.72) 16.2%,rgba(255,255,255,.72) 16.66%,
+        var(--lilac-strong) 16.66%,var(--lilac-strong) 32.9%,rgba(255,255,255,.72) 32.9%,rgba(255,255,255,.72) 33.33%,
+        var(--peach-strong) 33.33%,var(--peach-strong) 49.6%,rgba(255,255,255,.72) 49.6%,rgba(255,255,255,.72) 50%,
+        var(--mint-strong) 50%,var(--mint-strong) 66.2%,rgba(255,255,255,.72) 66.2%,rgba(255,255,255,.72) 66.66%,
+        var(--sage-strong) 66.66%,var(--sage-strong) 82.9%,rgba(255,255,255,.72) 82.9%,rgba(255,255,255,.72) 83.33%,
+        var(--blush-strong) 83.33%,var(--blush-strong) 100%
+      );
+    }
+    .skippy{
+      position:absolute;
+      left:4%;
+      bottom:2px;
+      width:72px;
+      height:auto;
+      max-width:none;
+      transform:translateX(-50%) rotate(-2deg);
+      transform-origin:50% 100%;
+      pointer-events:none;
+      user-select:none;
+      filter:drop-shadow(0 9px 8px rgba(7,61,54,.15));
+      transition:left .38s cubic-bezier(.22,.8,.22,1);
+      will-change:left,transform;
+    }
+
+    .results{padding:22px 0 80px}
+
+    .result-hero{
+      display:grid;
+      grid-template-columns:240px 1fr;
+      gap:30px;
+      align-items:center;
+      padding:28px;
+      border:1px solid var(--line);
+      border-radius:26px;
+      background:#fff;
+      box-shadow:0 18px 55px rgba(26,64,57,.06);
+    }
+    .score-ring{
+      --score:0;
+      width:190px;
+      aspect-ratio:1;
+      margin:auto;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:conic-gradient(var(--dark) calc(var(--score)*1%),#edf2ef 0);
+      position:relative;
+    }
+    .score-ring::after{
+      content:"";
+      position:absolute;
+      inset:14px;
+      border-radius:50%;
+      background:#fff;
+    }
+    .score-inner{position:relative;z-index:1;text-align:center}
+    .score-value{
+      font-size:62px;
+      font-weight:850;
+      line-height:.95;
+      letter-spacing:-.055em;
+    }
+    .score-max{margin-top:8px;color:var(--muted);font-size:11px;font-weight:700}
+    .result-kicker{
+      color:#648079;
+      font-size:11px;
+      font-weight:850;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .result-title{
+      margin:8px 0 10px;
+      font-size:clamp(30px,4vw,48px);
+      line-height:1.03;
+      letter-spacing:-.04em;
+    }
+    .result-meta{color:var(--text);font-size:14px;line-height:1.55}
+    .coverage{
+      margin-top:12px;
+      display:inline-flex;
+      gap:7px;
+      align-items:center;
+      padding:7px 10px;
+      border-radius:999px;
+      background:#f3f7f5;
+      color:#536e67;
+      font-size:11px;
+      font-weight:750;
+    }
+
+    .google-card{
+      margin-top:18px;
+      padding:18px 20px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:linear-gradient(135deg,#f5faf7,#fffaf4);
+      display:flex;
+      justify-content:space-between;
+      gap:22px;
+      align-items:center;
+    }
+    .google-card strong{display:block;font-size:15px}
+    .google-card p{margin:6px 0 0;color:var(--text);font-size:12px;line-height:1.5}
+    .google-badge{
+      flex:0 0 auto;
+      padding:8px 11px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--line);
+      color:var(--dark);
+      font-size:11px;
+      font-weight:800;
+    }
+
+    .section{margin-top:34px}
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:14px;
+    }
+    .section h2{margin:0;font-size:27px;letter-spacing:-.03em}
+    .section-note{color:var(--muted);font-size:12px}
+
+    .categories{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+    .cat-card{
+      min-height:138px;
+      padding:19px;
+      border:1px solid var(--line);
+      border-radius:18px;
+    }
+    .cat-card:nth-child(1){background:var(--blue)}
+    .cat-card:nth-child(2){background:var(--lilac)}
+    .cat-card:nth-child(3){background:var(--peach)}
+    .cat-card:nth-child(4){background:var(--mint)}
+    .cat-card:nth-child(5){background:var(--sage)}
+    .cat-card:nth-child(6){background:var(--blush)}
+    .cat-label{font-size:13px;font-weight:800}
+    .cat-score{margin-top:10px;font-size:31px;font-weight:850;letter-spacing:-.035em}
+    .cat-note{margin-top:8px;color:#61756f;font-size:11px;line-height:1.45}
+
+    .opportunities{display:grid;gap:11px}
+    .issue{
+      display:grid;
+      grid-template-columns:44px 1fr;
+      gap:14px;
+      padding:18px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fff;
+    }
+    .issue-num{
+      width:38px;height:38px;border-radius:50%;
+      display:grid;place-items:center;
+      background:var(--lilac);
+      color:var(--dark);
+      font-size:12px;font-weight:850;
+    }
+    .issue h3{margin:0 0 6px;font-size:17px;letter-spacing:-.01em}
+    .issue p{margin:0;color:var(--text);font-size:13px;line-height:1.5}
+    .issue .fix{margin-top:7px;color:var(--ink);font-weight:650}
+
+    .wins{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+    .win{
+      padding:17px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fff;
+    }
+    .win-check{
+      display:inline-grid;
+      place-items:center;
+      width:24px;height:24px;
+      margin-bottom:10px;
+      border-radius:50%;
+      background:var(--mint);
+      font-weight:900;
+    }
+    .win strong{display:block;font-size:14px}
+    .win p{margin:6px 0 0;color:var(--text);font-size:12px;line-height:1.45}
+
+    .unlock{
+      margin-top:42px;
+      padding:30px;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(360px,.85fr);
+      gap:32px;
+      align-items:center;
+      border-radius:26px;
+      background:var(--dark);
+      color:#fff;
+      position:relative;
+      overflow:hidden;
+    }
+    .unlock::after{
+      content:"";
+      position:absolute;
+      width:280px;height:280px;
+      right:-90px;top:-125px;
+      border-radius:50%;
+      background:rgba(255,255,255,.055);
+    }
+    .unlock-copy{position:relative;z-index:1}
+    .unlock .eyebrow{color:#cbded9}
+    .unlock h2{
+      margin:10px 0 12px;
+      font-size:clamp(30px,4vw,48px);
+      line-height:1.05;
+      letter-spacing:-.04em;
+    }
+    .unlock p{
+      margin:0;
+      max-width:590px;
+      color:#d2e0dc;
+      font-size:15px;
+      line-height:1.6;
+    }
+    .report-list{
+      margin:18px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:8px;
+      color:#e8f0ee;
+      font-size:13px;
+    }
+    .report-list li::before{content:"✓";font-weight:900;margin-right:8px}
+    .lead-box{
+      position:relative;
+      z-index:1;
+      padding:20px;
+      border:1px solid rgba(255,255,255,.13);
+      border-radius:20px;
+      background:rgba(255,255,255,.08);
+    }
+    .lead-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+    .lead-grid .full{grid-column:1/-1}
+    .lead-box label{
+      display:block;
+      margin-bottom:6px;
+      color:#d8e6e2;
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .lead-box input{
+      width:100%;
+      min-height:48px;
+      padding:0 12px;
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:11px;
+      background:#fff;
+      color:var(--ink);
+      outline:none;
+    }
+    .consent{
+      margin-top:12px;
+      display:flex;
+      align-items:flex-start;
+      gap:9px;
+      color:#d5e3df;
+      font-size:11px;
+      line-height:1.45;
+    }
+    .consent input{
+      width:16px;height:16px;min-height:auto;margin-top:1px;flex:0 0 16px;
+    }
+    .consent a{color:#fff}
+    .report-btn{
+      width:100%;
+      min-height:50px;
+      margin-top:14px;
+      border:0;
+      border-radius:12px;
+      background:#fff;
+      color:var(--dark);
+      font-weight:850;
+      cursor:pointer;
+    }
+    .report-btn:disabled{opacity:.65;cursor:wait}
+    .report-status{
+      min-height:18px;
+      margin-top:10px;
+      color:#dceae6;
+      font-size:11px;
+      line-height:1.4;
+    }
+
+    .debug{
+      margin-top:32px;
+      padding:18px;
+      border:1px dashed #aebfba;
+      border-radius:16px;
+      background:#fff;
+      font-size:12px;
+      line-height:1.6;
+      color:var(--text);
+    }
+
+    footer{
+      margin-top:60px;
+      padding:28px 0 36px;
+      border-top:1px solid var(--line);
+    }
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:22px;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .footer-links{display:flex;gap:18px;flex-wrap:wrap}
+    .footer-links a{text-decoration:none}
+
+    /* GHL embed mode */
+    body.embed-mode{background:transparent!important}
+    body.embed-mode .topbar,
+    body.embed-mode footer{display:none!important}
+    body.embed-mode .hero{padding-top:44px}
+    body.embed-mode .results{padding-bottom:34px}
+
+    @media(max-width:900px){
+      .scan-form{grid-template-columns:1fr 1fr}
+      .scan-submit-wrap{align-items:stretch}
+      .primary-btn{width:100%}
+      .result-hero{grid-template-columns:1fr;text-align:center}
+      .unlock{grid-template-columns:1fr}
+      .categories{grid-template-columns:repeat(2,1fr)}
+      .wins{grid-template-columns:1fr}
+      .section-head{align-items:flex-start;flex-direction:column;gap:6px}
+    }
+    @media(max-width:620px){
+      .shell{width:calc(100% - 24px)}
+      .topbar{padding:15px 0}
+      .brand img{width:40px;height:40px}
+      .brand span,.topnote{display:none}
+      .hero{padding:40px 0 32px}
+      body.embed-mode .hero{padding-top:30px}
+      h1{font-size:clamp(40px,13vw,60px)}
+      .hero-copy{font-size:16px}
+      .scan-card{padding:12px;border-radius:18px}
+      .scan-form{grid-template-columns:1fr}
+      .skippy{width:58px}
+      .progress-wrap{padding-top:51px}
+      .result-hero{padding:20px}
+      .score-ring{width:158px}
+      .score-value{font-size:52px}
+      .google-card{align-items:flex-start;flex-direction:column}
+      .categories{grid-template-columns:1fr}
+      .cat-card{min-height:112px}
+      .issue{grid-template-columns:36px 1fr;padding:15px}
+      .issue-num{width:32px;height:32px}
+      .unlock{padding:22px 16px}
+      .lead-grid{grid-template-columns:1fr}
+      .lead-grid .full{grid-column:auto}
+      .footer-inner{align-items:flex-start;flex-direction:column}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *{scroll-behavior:auto!important}
+      .fill,.skippy{transition:none!important}
+    }
+  </style>
 </head>
 <body>
-<div class="shell top">BMA Google Visibility Check — Development Tester V1.3</div>
-<main class="shell">
-<section class="hero"><h1>Can customers actually find you on Google?</h1><p>Test the local visibility foundations behind Google Search, Maps and local results.</p></section>
-<section class="panel">
-<form id="form" class="form">
-<input id="businessName" placeholder="Business name" required>
-<input id="website" placeholder="Website — example.com" required>
-<input id="location" placeholder="Service area / Suburb / City" required>
-<button id="btn" class="btn">Check My Visibility →</button>
-</form>
-<div id="status" class="panel hidden" style="margin-bottom:0">
-<div class="statusTop"><span id="message">Finding your business on Google…</span><strong id="pct">0%</strong></div>
-<div class="progressWrap"><img class="skippy" id="skippy" src="/assets/skippy.webp" alt=""><div class="track"><div id="fill" class="fill"></div></div></div>
-</div>
-</section>
-<section id="result" class="hidden">
-<div class="panel resultHead"><div><div id="overall" class="score">—</div><div class="meta">out of 100</div></div><div><div id="label" class="label"></div><div id="businessMeta" class="meta"></div><div id="googleMeta" class="meta"></div></div></div>
-<div id="cards" class="cards"></div>
-<h2 class="sectionTitle">Top visibility opportunities</h2><div id="issues"></div>
-<h2 class="sectionTitle">What is working</h2><div id="wins"></div>
-<h2 class="sectionTitle">Developer diagnostics</h2><div id="diag" class="panel diag"></div>
-</section>
-</main>
+  <header class="shell topbar">
+    <a class="brand" href="https://businessmarketingagency.com.au/">
+      <img src="https://assets.cdn.filesafe.space/gtMn9I35Y8aMMcIRrPV6/media/6abbc84010a2b7bc2b1d36b8.png" alt="Business Marketing Agency">
+      <div>
+        <strong>Business Marketing Agency</strong>
+        <span>Your marketing team, without the overhead.</span>
+      </div>
+    </a>
+    <div class="topnote">Free Google Visibility Check</div>
+  </header>
+
+  <main>
+    <section class="hero shell">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> Free Google Visibility Check</div>
+      <h1>Can customers actually find you on Google?</h1>
+      <p class="hero-copy">See how your business is showing up across Google Search, Maps and local results — and what may be holding your visibility back.</p>
+      <div class="hero-points">
+        <span class="hero-point">Free</span>
+        <span class="hero-point">Google profile + website checks</span>
+        <span class="hero-point">No login required</span>
+        <span class="hero-point">Usually 20–45 seconds</span>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="scan-card">
+        <form id="scanForm" class="scan-form">
+          <div class="field-wrap">
+            <label for="businessName">Business name</label>
+            <input id="businessName" class="input" placeholder="Your business name" required>
+          </div>
+          <div class="field-wrap">
+            <label for="website">Website</label>
+            <input id="website" class="input" inputmode="url" placeholder="yourwebsite.com" required>
+          </div>
+          <div class="field-wrap">
+            <label for="location">Service area / Suburb / City</label>
+            <input id="location" class="input" placeholder="e.g. Berwick, VIC or UK" required>
+          </div>
+          <div class="scan-submit-wrap">
+            <button id="submit" class="primary-btn" type="submit">Check My Visibility →</button>
+          </div>
+        </form>
+
+        <div id="status" class="status hidden" aria-live="polite">
+          <div class="status-top">
+            <span id="statusMessage" class="status-message">Finding your business on Google…</span>
+            <span id="statusPercent" class="status-percent">0%</span>
+          </div>
+          <div class="progress-wrap" aria-hidden="true">
+            <img id="statusMascot" class="skippy" src="/assets/skippy.webp" alt="" draggable="false">
+            <div class="track"><div id="statusFill" class="fill"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="result" class="results shell hidden">
+      <div class="result-hero">
+        <div class="score-ring" id="scoreRing">
+          <div class="score-inner">
+            <div class="score-value" id="overall">—</div>
+            <div class="score-max" id="scoreCaption">out of 100</div>
+          </div>
+        </div>
+        <div>
+          <div class="result-kicker">Your Google Visibility Check</div>
+          <h2 class="result-title" id="label"></h2>
+          <div class="result-meta" id="businessMeta"></div>
+          <div id="coverage" class="coverage"></div>
+        </div>
+      </div>
+
+      <div id="googleProfile" class="google-card hidden"></div>
+
+      <div class="section">
+        <div class="section-head">
+          <h2>Your six visibility signals</h2>
+          <div class="section-note">Google profile, reputation, local relevance and search foundations.</div>
+        </div>
+        <div id="categories" class="categories"></div>
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <h2>Your biggest visibility opportunities</h2>
+          <div class="section-note">Prioritised by likely impact.</div>
+        </div>
+        <div id="issues" class="opportunities"></div>
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <h2>What you're already doing well</h2>
+          <div class="section-note">Good foundations are worth protecting.</div>
+        </div>
+        <div id="wins" class="wins"></div>
+      </div>
+
+      <section class="unlock">
+        <div class="unlock-copy">
+          <div class="eyebrow">Free PDF Report</div>
+          <h2>Want the complete Google Visibility Report?</h2>
+          <p>Get your result, Google profile snapshot, detailed findings and a simple 30-day visibility plan in a branded PDF.</p>
+          <ul class="report-list">
+            <li>Six visibility results</li>
+            <li>Google Business Profile and review snapshot</li>
+            <li>Top opportunities and recommended fixes</li>
+            <li>30-day visibility priority plan</li>
+          </ul>
+        </div>
+
+        <form id="reportForm" class="lead-box">
+          <div class="lead-grid">
+            <div>
+              <label for="firstName">First name</label>
+              <input id="firstName" autocomplete="given-name" required>
+            </div>
+            <div>
+              <label for="leadBusinessName">Business name <span style="opacity:.7">(optional)</span></label>
+              <input id="leadBusinessName" autocomplete="organization">
+            </div>
+            <div class="full">
+              <label for="email">Email</label>
+              <input id="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+
+          <label class="consent">
+            <input id="consent" type="checkbox" required>
+            <span>I agree to BMA using my details to send this report and contact me about the findings. I have read the <a href="https://businessmarketingagency.com.au/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>.</span>
+          </label>
+
+          <button id="reportButton" class="report-btn" type="submit">Get My Free Report →</button>
+          <div id="reportStatus" class="report-status" aria-live="polite"></div>
+        </form>
+      </section>
+
+      <div id="debug" class="debug hidden"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <div>© <span id="year"></span> Business Marketing Agency. Melbourne, Australia.</div>
+      <div class="footer-links">
+        <a href="https://businessmarketingagency.com.au/privacy-policy">Privacy Policy</a>
+        <a href="https://businessmarketingagency.com.au/terms-and-conditions">Terms & Conditions</a>
+        <a href="https://businessmarketingagency.com.au/contact-us">Talk to BMA</a>
+      </div>
+    </div>
+  </footer>
+
 <script>
-const $=s=>document.querySelector(s);let timer=null,p=0,lastHop=0;
-function stage(v){if(v<18)return'Finding your business on Google…';if(v<38)return'Reviewing your Google profile…';if(v<55)return'Checking reviews and reputation…';if(v<72)return'Analysing local website signals…';if(v<88)return'Reviewing SEO and technical health…';return'Preparing your visibility result…'}
-function paint(v,msg){p=Math.max(0,Math.min(100,Math.round(v)));$('#pct').textContent=p+'%';$('#fill').style.width=p+'%';$('#message').textContent=msg||stage(p);$('#skippy').style.left=(4+p*.92)+'%';const n=performance.now();if(p<100&&n-lastHop>420){lastHop=n;$('#skippy').animate([{transform:'translateX(-50%) translateY(0)'},{transform:'translateX(-50%) translateY(-11px)'},{transform:'translateX(-50%) translateY(0)'}],{duration:380})}}
-function start(){p=1;paint(1);timer=setInterval(()=>{let s=p<35?2.2:p<75?1.1:.35;paint(Math.min(94,p+s+Math.random()*s))},450)}function done(){clearInterval(timer);timer=null;paint(100,'Visibility check complete.')}
-function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-$('#form').addEventListener('submit',async e=>{e.preventDefault();$('#result').classList.add('hidden');$('#status').classList.remove('hidden');$('#btn').disabled=true;start();try{const r=await fetch('/api/visibility-check',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({businessName:$('#businessName').value,website:$('#website').value,location:$('#location').value})});const d=await r.json();if(!r.ok||!d.success)throw new Error(d.error||'Visibility check failed');done();render(d)}catch(err){clearInterval(timer);$('#message').textContent=err.message;$('#pct').textContent='';}finally{$('#btn').disabled=false}})
-function render(d){
-  const provisional=d.score.overall===null;
-  $('#overall').textContent=provisional?d.score.confirmedScore:d.score.overall;
-  $('#label').textContent=d.score.label;
-  $('#businessMeta').textContent=`${d.business.domain} • ${d.business.location} • ${(d.meta.durationMs/1000).toFixed(1)}s`;
+const embedMode=new URLSearchParams(location.search).get('embed')==='1';
+if(embedMode)document.body.classList.add('embed-mode');
 
-  const g=d.google.match;
-  if(g){
-    $('#googleMeta').textContent=d.google.trusted
-      ? `Google match: ${g.name} • ${g.rating??'—'}★ • ${g.reviewCount} reviews • verified match`
-      : `Possible Google match: ${g.name} • ${d.google.confidence} confidence • not used for profile/review scoring`;
-  }else{
-    $('#googleMeta').textContent=`Google business match: not confirmed${d.google.error?' • '+d.google.error:''}`;
-  }
+const debugMode=new URLSearchParams(location.search).get('debug')==='1';
+const reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if(provisional){
-    $('#businessMeta').textContent+=` • ${d.score.confirmedScore} of ${d.score.verifiedMax} verified points`;
-  }
+const scanForm=document.getElementById('scanForm');
+const reportForm=document.getElementById('reportForm');
+const resultEl=document.getElementById('result');
+const statusEl=document.getElementById('status');
+const statusMessage=document.getElementById('statusMessage');
+const statusPercent=document.getElementById('statusPercent');
+const statusFill=document.getElementById('statusFill');
+const statusMascot=document.getElementById('statusMascot');
+const submit=document.getElementById('submit');
+const reportButton=document.getElementById('reportButton');
+const reportStatus=document.getElementById('reportStatus');
+const debugEl=document.getElementById('debug');
 
-  $('#cards').innerHTML=Object.values(d.categories).map(c=>{
-    const result=typeof c.score==='number'
-      ? `${esc(c.score)} / ${esc(c.max)}`
-      : 'Not verified';
-    const note=c.verified===false
-      ? '<div class="meta">Google match not trusted enough to score this area.</div>'
-      : (c.partial?'<div class="meta">Partial data</div>':'');
-    return `<div class="card"><strong>${esc(c.name)}</strong><b>${result}</b>${note}</div>`;
-  }).join('');
+let progressTimer=null;
+let progressValue=0;
+let lastMascotHop=0;
+let latestScan=null;
 
-  $('#issues').innerHTML=d.topIssues.length
-    ? d.topIssues.map((x,i)=>`<div class="issue"><strong>${i+1}. ${esc(x.title)}</strong><p>${esc(x.text)}</p><p class="fix">${esc(x.recommendation)}</p></div>`).join('')
-    : '<div class="win"><strong>✓ No high-priority issues detected</strong><p>The business passed the core checks in the current local visibility model.</p></div>';
+document.getElementById('year').textContent=new Date().getFullYear();
 
-  $('#wins').innerHTML=d.wins.length
-    ? d.wins.map(x=>`<div class="win"><strong>✓ ${esc(x.title)}</strong><p>${esc(x.text)}</p></div>`).join('')
-    : '<div class="win"><strong>More positives will appear as verified signals pass.</strong></div>';
-
-  $('#diag').innerHTML=`Places API: ${d.google.available?'available':'unavailable'}<br>`+
-    `Location mode: ${esc(d.business.locationScopeType==='service-area'?'Service-area / broad region':'Local city/suburb')}<br>`+
-    `Google match confidence: ${esc(d.google.confidence)}<br>`+
-    `Google match trusted for scoring: ${d.google.trusted?'Yes':'No'}<br>`+
-    `Domain fallback search used: ${d.google.fallbackQueryUsed?'Yes':'No'}<br>`+
-    `Matched website: ${esc(g?.website||'—')}<br>`+
-    `Pure service-area business: ${g?.pureServiceAreaBusiness?'Yes':'No'}<br>`+
-    `Exact website match: ${g?.exactWebsite?'Yes':'No'}<br>`+
-    `Match score: ${esc(g?.matchScore??'—')}<br>`+
-    `Matched address: ${esc(g?.address||'—')}<br>`+
-    `Matched category: ${esc(g?.category||'—')}<br>`+
-    `PageSpeed: ${d.technical.pageSpeedAvailable?d.technical.pageSpeedScore+'/100':esc(d.technical.pageSpeedError||'unavailable')}<br>`+
-    `Sitemap: ${d.technical.sitemapFound?esc(d.technical.sitemapUrl):'not found'}<br>`+
-    `Sampled pages:<br>${d.technical.sampledPages.map(x=>'• '+esc(x)).join('<br>')}`;
-
-  $('#result').classList.remove('hidden');
-  setTimeout(()=>$('#result').scrollIntoView({behavior:'smooth'}),120);
+function esc(value=''){
+  return String(value).replace(/[&<>"']/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
+
+function postEmbedHeight(){
+  if(!embedMode || window.parent===window)return;
+  const main=document.querySelector('main');
+  let height=0;
+  if(main){
+    const rect=main.getBoundingClientRect();
+    height=Math.ceil(rect.bottom+window.scrollY);
+  }
+  height=Math.max(500,height+12);
+  window.parent.postMessage({type:'bma-google-visibility-check-height',height},'*');
+}
+
+if(embedMode && window.parent!==window){
+  if('ResizeObserver' in window){
+    const ro=new ResizeObserver(()=>postEmbedHeight());
+    ro.observe(document.body);
+  }
+  window.addEventListener('load',postEmbedHeight);
+  setTimeout(postEmbedHeight,250);
+  setTimeout(postEmbedHeight,1200);
+}
+
+function progressStage(value){
+  if(value<16)return 'Finding your business on Google…';
+  if(value<32)return 'Reviewing your Google profile…';
+  if(value<48)return 'Checking reviews and reputation…';
+  if(value<65)return 'Analysing local website signals…';
+  if(value<84)return 'Reviewing SEO and technical health…';
+  return 'Preparing your visibility result…';
+}
+
+function paintProgress(value,message){
+  progressValue=Math.max(0,Math.min(100,Math.round(value)));
+  statusPercent.textContent=progressValue+'%';
+  statusFill.style.width=progressValue+'%';
+  statusMessage.textContent=message||progressStage(progressValue);
+
+  if(statusMascot){
+    statusMascot.style.left=(4+(progressValue*.92))+'%';
+    if(!reduceMotion && progressValue<100){
+      const now=performance.now();
+      if(now-lastMascotHop>360){
+        lastMascotHop=now;
+        statusMascot.animate([
+          {transform:'translateX(-50%) translateY(0) rotate(-3deg)'},
+          {transform:'translateX(-50%) translateY(-13px) rotate(3deg)',offset:.5},
+          {transform:'translateX(-50%) translateY(0) rotate(-2deg)'}
+        ],{duration:380,easing:'ease-out'});
+      }
+    }
+  }
+}
+
+function startProgress(){
+  if(progressTimer)clearInterval(progressTimer);
+  paintProgress(1,'Finding your business on Google…');
+  progressTimer=setInterval(()=>{
+    let step;
+    if(progressValue<20)step=2+Math.random()*2.2;
+    else if(progressValue<55)step=1.1+Math.random()*1.8;
+    else if(progressValue<80)step=.6+Math.random()*1.2;
+    else step=.2+Math.random()*.6;
+    paintProgress(Math.min(94,progressValue+step));
+  },420);
+}
+
+function finishProgress(){
+  if(progressTimer){clearInterval(progressTimer);progressTimer=null}
+  paintProgress(100,'Visibility check complete.');
+  if(statusMascot&&!reduceMotion){
+    statusMascot.animate([
+      {transform:'translateX(-50%) translateY(0) rotate(-2deg)'},
+      {transform:'translateX(-50%) translateY(-19px) rotate(5deg)',offset:.45},
+      {transform:'translateX(-50%) translateY(0) rotate(-2deg)'}
+    ],{duration:520,easing:'cubic-bezier(.2,.8,.2,1)'});
+  }
+}
+
+function failProgress(message){
+  if(progressTimer){clearInterval(progressTimer);progressTimer=null}
+  statusMessage.textContent=message;
+  statusPercent.textContent='';
+  statusFill.style.width='100%';
+}
+
+function renderGoogleProfile(data){
+  const el=document.getElementById('googleProfile');
+  const g=data.google?.match;
+
+  if(!g){
+    el.innerHTML=
+      `<div><strong>Google Business Profile not confidently matched</strong>`+
+      `<p>We have kept the Google profile and review sections unscored rather than guessing.</p></div>`+
+      `<div class="google-badge">Not verified</div>`;
+    el.classList.remove('hidden');
+    return;
+  }
+
+  if(!data.google.trusted){
+    el.innerHTML=
+      `<div><strong>Possible Google profile: ${esc(g.name)}</strong>`+
+      `<p>This result was not trusted strongly enough to use its rating or reviews in your visibility result.</p></div>`+
+      `<div class="google-badge">${esc(data.google.confidence)} confidence</div>`;
+    el.classList.remove('hidden');
+    return;
+  }
+
+  const reviewText=typeof g.rating==='number'
+    ? `${g.rating.toFixed(1)}★ • ${g.reviewCount} review${g.reviewCount===1?'':'s'}`
+    : `${g.reviewCount} review${g.reviewCount===1?'':'s'}`;
+
+  el.innerHTML=
+    `<div><strong>${esc(g.name)}</strong>`+
+    `<p>${esc(g.category||'Google Business Profile')}${g.address?` • ${esc(g.address)}`:''}<br>${esc(reviewText)}</p></div>`+
+    `<div class="google-badge">Verified Google match</div>`;
+  el.classList.remove('hidden');
+}
+
+function renderScan(data){
+  latestScan=data;
+
+  const provisional=data.score.overall===null;
+  const shown=provisional?Math.round(data.score.confirmedScore||0):Math.round(data.score.overall||0);
+  const max=provisional?Math.round(data.score.verifiedMax||0):100;
+
+  document.getElementById('overall').textContent=shown;
+  document.getElementById('scoreCaption').textContent=provisional?`of ${max} verified points`:'out of 100';
+  document.getElementById('scoreRing').style.setProperty('--score',provisional?(max?Math.min(100,(shown/max)*100):0):shown);
+
+  document.getElementById('label').textContent=data.score.label;
+  document.getElementById('businessMeta').textContent=
+    `${data.business.submittedName} • ${data.business.location} • ${(data.meta.durationMs/1000).toFixed(1)}s`;
+
+  document.getElementById('coverage').textContent=provisional
+    ? `${Math.round((data.score.coverage||0)*100)}% of the full model verified • Google identity needs more evidence`
+    : `Google + website visibility foundations checked`;
+
+  renderGoogleProfile(data);
+
+  const categories=document.getElementById('categories');
+  categories.innerHTML='';
+  Object.values(data.categories).forEach((c)=>{
+    const card=document.createElement('article');
+    card.className='cat-card';
+
+    if(typeof c.score!=='number'){
+      card.innerHTML=
+        `<div class="cat-label">${esc(c.name)}</div>`+
+        `<div class="cat-score">Not verified</div>`+
+        `<div class="cat-note">We did not have enough trusted Google evidence to score this area.</div>`;
+    }else{
+      card.innerHTML=
+        `<div class="cat-label">${esc(c.name)}</div>`+
+        `<div class="cat-score">${esc(c.score)} / ${esc(c.max)}</div>`+
+        `<div class="cat-note">${c.partial?'Some supporting data could not be verified.':'Core checks completed.'}</div>`;
+    }
+
+    categories.appendChild(card);
+  });
+
+  const issues=document.getElementById('issues');
+  const issueRows=(data.topIssues||[]).slice(0,3).map((issue,index)=>
+    `<article class="issue"><div class="issue-num">${index+1}</div>`+
+    `<div><h3>${esc(issue.title)}</h3><p>${esc(issue.text)}</p>`+
+    `<p class="fix">${esc(issue.recommendation)}</p></div></article>`
+  );
+
+  if(issueRows.length){
+    while(issueRows.length<3){
+      const n=issueRows.length+1;
+      issueRows.push(
+        `<article class="issue"><div class="issue-num">${n}</div>`+
+        `<div><h3>No additional high-priority visibility issue detected</h3>`+
+        `<p>The remaining checks did not produce another issue strong enough to prioritise.</p>`+
+        `<p class="fix">Protect what is working and focus on the verified opportunities above.</p></div></article>`
+      );
+    }
+    issues.innerHTML=issueRows.join('');
+  }else{
+    issues.innerHTML=
+      `<article class="issue"><div class="issue-num">✓</div>`+
+      `<div><h3>No high-priority visibility issues detected</h3>`+
+      `<p>The business passed the core checks in the current Google Visibility model.</p></div></article>`;
+  }
+
+  const wins=document.getElementById('wins');
+  const winData=(data.wins||[]).slice(0,3);
+  wins.innerHTML=winData.length
+    ? winData.map((win)=>`<article class="win"><div class="win-check">✓</div><strong>${esc(win.title)}</strong><p>${esc(win.text)}</p></article>`).join('')
+    : `<article class="win"><strong>More positives will appear as verified signals pass.</strong></article>`;
+
+  if(debugMode){
+    const g=data.google?.match;
+    debugEl.classList.remove('hidden');
+    debugEl.innerHTML=
+      `<strong>Developer diagnostics</strong><br>`+
+      `Places API: ${data.google.available?'available':'unavailable'}<br>`+
+      `Location mode: ${esc(data.business.locationScopeType||'—')}<br>`+
+      `Google match confidence: ${esc(data.google.confidence||'none')}<br>`+
+      `Google match trusted for scoring: ${data.google.trusted?'Yes':'No'}<br>`+
+      `Matched website: ${esc(g?.website||'—')}<br>`+
+      `Pure service-area business: ${g?.pureServiceAreaBusiness?'Yes':'No'}<br>`+
+      `Exact website match: ${g?.exactWebsite?'Yes':'No'}<br>`+
+      `Matched address: ${esc(g?.address||'—')}<br>`+
+      `PageSpeed: ${data.technical.pageSpeedAvailable?data.technical.pageSpeedScore+'/100':esc(data.technical.pageSpeedError||'unavailable')}<br>`+
+      `Sitemap: ${data.technical.sitemapFound?esc(data.technical.sitemapUrl):'not found'}<br>`+
+      `Sampled pages:<br>${(data.technical.sampledPages||[]).map((x)=>'• '+esc(x)).join('<br>')}`;
+  }else{
+    debugEl.classList.add('hidden');
+  }
+
+  document.getElementById('leadBusinessName').value=
+    document.getElementById('businessName').value.trim();
+
+  resultEl.classList.remove('hidden');
+  postEmbedHeight();
+  setTimeout(()=>{
+    resultEl.scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'start'});
+    postEmbedHeight();
+  },150);
+}
+
+scanForm.addEventListener('submit',async(e)=>{
+  e.preventDefault();
+  resultEl.classList.add('hidden');
+  latestScan=null;
+  reportStatus.textContent='';
+  statusEl.classList.remove('hidden');
+  submit.disabled=true;
+  startProgress();
+  postEmbedHeight();
+
+  try{
+    const payload={
+      businessName:document.getElementById('businessName').value.trim(),
+      website:document.getElementById('website').value.trim(),
+      location:document.getElementById('location').value.trim()
+    };
+
+    const response=await fetch('/api/visibility-check',{
+      method:'POST',
+      headers:{'content-type':'application/json'},
+      body:JSON.stringify(payload)
+    });
+
+    const data=await response.json();
+    if(!response.ok||!data.success)throw new Error(data.error||'We could not complete this Google Visibility Check.');
+
+    finishProgress();
+    renderScan(data);
+  }catch(error){
+    failProgress(error?.message||'Visibility check failed.');
+  }finally{
+    submit.disabled=false;
+    postEmbedHeight();
+  }
+});
+
+reportForm.addEventListener('submit',async(e)=>{
+  e.preventDefault();
+
+  if(!latestScan){
+    reportStatus.textContent='Run a Google Visibility Check first.';
+    return;
+  }
+
+  const lead={
+    firstName:document.getElementById('firstName').value.trim(),
+    businessName:document.getElementById('leadBusinessName').value.trim(),
+    email:document.getElementById('email').value.trim(),
+    consent:document.getElementById('consent').checked
+  };
+
+  if(!lead.firstName||!lead.email||!lead.consent){
+    reportStatus.textContent='Please complete the required fields and consent checkbox.';
+    return;
+  }
+
+  reportButton.disabled=true;
+  reportButton.textContent='Preparing your report…';
+  reportStatus.textContent='Building your PDF. This normally takes a few seconds.';
+
+  try{
+    const response=await fetch('/api/report',{
+      method:'POST',
+      headers:{'content-type':'application/json'},
+      body:JSON.stringify({lead,scan:latestScan})
+    });
+
+    if(!response.ok){
+      const maybe=await response.json().catch(()=>null);
+      throw new Error(maybe?.error||'We could not generate your report.');
+    }
+
+    const blob=await response.blob();
+    const objectUrl=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=objectUrl;
+    a.download=`BMA-Google-Visibility-Report-${latestScan.business.domain.replace(/[^a-z0-9.-]/gi,'-')}.pdf`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(()=>URL.revokeObjectURL(objectUrl),30000);
+
+    reportStatus.textContent='Your report is ready. Check your downloads.';
+    reportButton.textContent='Download Again →';
+    postEmbedHeight();
+  }catch(error){
+    reportStatus.textContent=error?.message||'We could not generate your report.';
+    reportButton.textContent='Get My Free Report →';
+  }finally{
+    reportButton.disabled=false;
+  }
+});
 </script>
 </body>
 </html>

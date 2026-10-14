@@ -111,7 +111,7 @@ export default async function handler(req,res){
         sampledPages:[home.url,...pages.map((p)=>p.url)],
         selectedPages:selections,
       },
-      meta:{version:'1.3.0',durationMs:Date.now()-started},
+      meta:{version:'2.0.0',durationMs:Date.now()-started},
     });
   }catch(error){
     return res.status(400).json({success:false,error:error?.message||'Visibility check failed.'});

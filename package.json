@@ -1,10 +1,13 @@
 {
   "name": "bma-google-visibility-check",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
-    "cheerio": "^1.0.0"
+    "cheerio": "^1.0.0",
+    "pdf-lib": "^1.17.1"
   }
 }
